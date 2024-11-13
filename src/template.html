@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css">
+    <title>To-do</title>
+</head>
+
+<body>
+    <header>
+        <h1 class="header-title"><i class="fa-solid fa-list-check"></i>To-do</h1>
+    </header>
+
+    <nav class="nav">
+        <h1 class="nav-title">My List</h1>
+        <ul id="todo-list" class="todo-list" data-lists>
+        </ul>
+        <button id="new-project" class="new-project common-button"><i class="fa-solid fa-circle-plus"></i>List</button>
+        <button class="delete-list-button" data-delete-from-list-button><i
+                class="fa-solid fa-trash-can"></i>Delete</button>
+    </nav>
+
+    <main>
+        <div id="todo-container" class="to-do" data-list-display-container>
+            <h1 id="project-name" class="main-title" data-list-title></h1>
+            <div class="tasks-container" data-tasks>
+            </div>
+            <button id="new-todo" class="new-todo common-button"><i class="fa-solid fa-circle-plus"></i>Task</button>
+
+        </div>
+    </main>
+
+    <!-- Modal for Add new task -->
+    <div id="modal-bg" class="modal-bg"></div>
+    <dialog id="add-todo-modal" class="modal">
+        <div class="modal-header">
+            <h1>New Task</h1>
+            <span id="modal-addToDo-close" class="modal-close modal-addToDo-close"><i
+                    class="fa-solid fa-circle-xmark"></i></span>
+        </div>
+        <form id="add-form" data-new-task-form>
+            <label for="title">Title</label><input type="text" name="title" id="task-title"
+                placeholder="To-Do: Eliminate them bugs!" data-task-title>
+            <label for="author">Description</label><textarea name="description" id="task-description"
+                placeholder="console.log(everything!)" data-task-description></textarea>
+            <label for="pages">Due Date</label><input type="date" name="due-date" id="task-due-date" data-task-due-date>
+            <label for="priority">Priority</label>
+            <select name="priority" id="task-priority" data-task-priority>
+                <option value="Low">Low</option>
+                <option value="Medium">Medium</option>
+                <option value="High">High</option>
+            </select>
+            <div class="add-button-container">
+                <button type="submit" id="add-todo-button" class="add-button common-button"><i
+                        class="fa-solid fa-circle-plus"></i>Add</button>
+            </div>
+        </form>
+    </dialog>
+
+    <!-- Modal for Edit new task -->
+    <div id="modal-bg" class="modal-bg"></div>
+    <dialog id="edit-task-modal" class="modal">
+        <div class="modal-header">
+            <h1>Edit Task</h1>
+            <span id="modal-editTask-close" class="modal-close modal-editTask-close"><i
+                    class="fa-solid fa-circle-xmark"></i></span>
+        </div>
+        <form id="edit-form" data-edit-task-form>
+            <label for="title">Title</label><input type="text" name="title" id="edit-task-title" data-edit-task-title>
+            <label for="author">Description</label><textarea name="description" id="edit-task-description"
+                placeholder="console.log(everything!)" data-edit-task-description></textarea>
+            <label for="pages">Due Date</label><input type="date" name="due-date" id="edit-task-due-date"
+                data-edit-task-due-date>
+            <label for="priority">Priority</label>
+            <select name="priority" id="edit-task-priority" data-edit-task-priority>
+                <option value="Low">Low</option>
+                <option value="Medium">Medium</option>
+                <option value="High">High</option>
+            </select>
+            <div class="add-button-container">
+                <button type="submit" id="save-task-button" class="save-button common-button"><i
+                        class="fa-solid fa-circle-plus"></i>Save</button>
+            </div>
+            <input type="hidden" id="edit-task-id">
+            <input type="hidden" id="edit-task-status">
+        </form>
+    </dialog>
+
+    <!-- Modal for add list -->
+    <div id="modal-bg" class="modal-bg"></div>
+    <dialog id="add-project-modal" class="modal">
+        <div class="modal-header">
+            <h1>New List</h1>
+            <span id="modal-addProject-close" class="modal-close"><i class="fa-solid fa-circle-xmark"></i></span>
+        </div>
+        <form id="add-project-form" data-new-project-form>
+            <label for="project">Name</label><input type="text" name="project" id="project-title"
+                placeholder="To-do list app" data-new-project-input>
+            <div class="add-button-container">
+                <button id="add-project-button" class="add-button common-button" type="submit">
+                    <i class="fa-solid fa-circle-plus"></i>Add</button>
+            </div>
+        </form>
+
+    </dialog>
+    <script type="module" src="./index.js"></script>
+</body>
+
+</html>
